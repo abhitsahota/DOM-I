@@ -107,3 +107,9 @@ contactcontent[2].textContent = siteContent["contact"]["email"]
 
 let footerp = document.querySelector('footer p')
 footerp.textContent = siteContent["footer"]["copyright"]
+
+// Stretch
+
+ctabutt.addEventListener('click', event => {
+  ctabutt.textContent = `Click count: ${event.detail}`;
+});
