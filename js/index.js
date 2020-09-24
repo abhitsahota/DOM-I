@@ -37,6 +37,79 @@ const siteContent = {
   },
 };
 
-// Example: Update the img src for the logo
+
+
+// Nav
+
+let navtext = Object.values(siteContent.nav)
+let links = document.querySelectorAll('a');
+links.forEach((element, index) => element.textContent = navtext[index])
+
+// Append and prepend new items to nav
+let firstlink = document.createElement('a')
+firstlink.textContent = "First Link"
+let lastlink = document.createElement('a')
+lastlink.textContent = "Last Link"
+
+let parentElement = document.querySelector('nav')
+parentElement.append(lastlink)
+parentElement.prepend(firstlink)
+
+
+// Change colour of nav
+
+links.forEach( element => {
+  // match headers with logo color
+  element.style.color = "green"
+});
+
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+// CTA
+
+let ctaheader = document.querySelector('.cta h1')
+ctaheader.textContent = siteContent["cta"]["h1"]
+let ctabutt = document.querySelector('.cta button')
+ctabutt.textContent = siteContent["cta"]["button"]
+let ctaImg = document.getElementById("cta-img");
+ctaImg.setAttribute('src', siteContent["cta"]["img-src"])
+
+
+// Main Content
+let mainH4 = document.querySelectorAll('.main-content h4')
+mainH4[0].textContent = siteContent["main-content"]["features-h4"]
+mainH4[1].textContent = siteContent["main-content"]["about-h4"]
+mainH4[2].textContent = siteContent["main-content"]["services-h4"]
+mainH4[3].textContent = siteContent["main-content"]["product-h4"]
+mainH4[4].textContent = siteContent["main-content"]["vision-h4"]
+
+
+let mainContent = document.querySelectorAll('.main-content p')
+mainContent[0].textContent = siteContent["main-content"]["features-content"]
+mainContent[1].textContent = siteContent["main-content"]["about-content"]
+mainContent[2].textContent = siteContent["main-content"]["services-content"]
+mainContent[3].textContent = siteContent["main-content"]["product-content"]
+mainContent[4].textContent = siteContent["main-content"]["vision-content"]
+
+let mainContentImg = document.querySelector('.main-content img')
+mainContentImg.src = siteContent["main-content"]["middle-img-src"]
+
+// Contact
+let contactH4 = document.querySelector('.contact h4')
+contactH4.textContent = siteContent["contact"]["contact-h4"]
+let contactcontent = document.querySelectorAll('.contact p')
+contactcontent[0].textContent = siteContent["contact"]["address"]
+contactcontent[1].textContent = siteContent["contact"]["phone"]
+contactcontent[2].textContent = siteContent["contact"]["email"]
+
+// Footer
+
+let footerp = document.querySelector('footer p')
+footerp.textContent = siteContent["footer"]["copyright"]
+
+// Stretch
+
+ctabutt.addEventListener('click', event => {
+  ctabutt.textContent = `Click count: ${event.detail}`;
+});
